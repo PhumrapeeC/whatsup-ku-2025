@@ -10,28 +10,11 @@
 
     <ImageView
         android:id="@+id/bannerImg"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/whatsup_cover" />
-
-    <ImageButton
-        android:id="@+id/enterMainImgBtn"
-        android:layout_width="103dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/bannerImg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/front_sign" />
 
     <Button
         android:id="@+id/signInBtn"
@@ -39,9 +22,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:text="sign-in"
+        android:text="SIGN-IN"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/bannerImg"
+        tools:ignore="VisualLintBounds" />
+
+    <ImageButton
+        android:id="@+id/enterMainImgBtn"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/bannerImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/front_sign" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/signInPanel"
@@ -58,21 +54,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bannerImg"
-        app:layout_constraintVertical_bias="0.515">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
-            android:id="@+id/signInLayout"
+            android:id="@+id/signInlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="8dp"
-            android:paddingStart="8dp"
-            android:paddingLeft="8dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="8dp"
-            android:paddingRight="8dp"
-            android:paddingBottom="8dp">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/logInLb"
@@ -102,23 +92,24 @@
                 android:id="@+id/pwdLb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Password:"
+                android:text="password:"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/pwdTxt"
+                android:id="@+id/pwdText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="your password"
-                android:inputType="textPassword" />
+                android:inputType="text" />
 
             <Button
                 android:id="@+id/enterBtn"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Enter" />
+                android:layout_gravity="center"
+                android:text="Enter"
+                android:textSize="20sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

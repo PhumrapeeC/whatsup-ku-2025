@@ -3,14 +3,15 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.secrets.gradle.plugin)
+    alias(libs.plugins.google.services)
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "org.classapp.whatsup"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
+        applicationId = "org.classapp.whatsup"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -42,15 +43,10 @@ android {
 }
 
 secrets {
-    // To add your Maps API key to this project:
-    // 1. If the secrets.properties file does not exist, create it in the same folder as the local.properties file.
-    // 2. Add this line, where YOUR_API_KEY is your API key:
-    //        MAPS_API_KEY=YOUR_API_KEY
     propertiesFileName = "secrets.properties"
-
-    // A properties file containing default secret values. This file can be
-    // checked in version control.
     defaultPropertiesFileName = "local.defaults.properties"
+    ignoreList.add("keyToIgnore")
+    ignoreList.add("sdk.*")
 }
 
 dependencies {
@@ -72,6 +68,8 @@ dependencies {
     implementation(libs.play.services.location)
     implementation(libs.play.services.maps)
     implementation(libs.maps.compose)
+    implementation(libs.firebase.bom)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -79,4 +77,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
+    implementation("com.google.firebase:firebase-firestore")
 }
